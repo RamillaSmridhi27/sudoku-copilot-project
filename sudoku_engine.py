@@ -1,3 +1,6 @@
+# Evaluated and Rejected Copilot Suggestion:
+# Copilot initially suggested a naive brute-force permutation without backtracking checks.
+# This was rejected due to exponential recursion overhead; replaced with a deterministic backtracking solver.
 import random
 from typing import List, Tuple, Optional
 
