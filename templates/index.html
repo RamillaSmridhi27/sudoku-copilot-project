@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Sudoku Challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <header class="game-header">
+            <h1>Sudoku Master</h1>
+            <button id="themeToggle" class="btn btn-secondary" aria-label="Toggle Dark Mode">🌓 Theme</button>
+        </header>
+
+        <div class="control-panel">
+            <div class="difficulty-group">
+                <label for="difficultySelect">Difficulty:</label>
+                <select id="difficultySelect">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            
+            <div class="timer-display" id="timer">Time: 00:00</div>
+            
+            <div class="action-buttons">
+                <button id="newGameBtn" class="btn btn-primary">New Game</button>
+                <button id="checkBtn" class="btn btn-secondary">Check</button>
+                <button id="hintBtn" class="btn btn-accent">Hint</button>
+            </div>
+        </div>
+
+        <main class="grid-container">
+            <div id="sudokuGrid" class="sudoku-grid"></div>
+        </main>
+
+        <div id="statusMessage" class="status-message" aria-live="polite"></div>
+
+        <section class="scoreboard-section">
+            <h2>Top 10 Fastest Solvers</h2>
+            <div class="table-responsive">
+                <table class="scoreboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Time</th>
+                            <th>Difficulty</th>
+                            <th>Hints Used</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scoreboardBody">
+                        <tr><td colspan="5">No records yet. Be the first!</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

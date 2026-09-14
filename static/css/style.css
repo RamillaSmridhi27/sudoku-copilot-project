@@ -1,0 +1,159 @@
+:root {
+    --bg-primary: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --border-color: #cbd5e1;
+    --grid-border: #0f172a;
+    --cell-bg-a: #ffffff;
+    --cell-bg-b: #f1f5f9;
+    --cell-locked: #e2e8f0;
+    --cell-conflict: #fee2e2;
+    --cell-hint: #bbf7d0;
+    --cell-error: #ef4444;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary: #64748b;
+    --accent: #10b981;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --card-bg: #1e293b;
+    --text-primary: #f8fafc;
+    --border-color: #334155;
+    --grid-border: #94a3b8;
+    --cell-bg-a: #1e293b;
+    --cell-bg-b: #0f172a;
+    --cell-locked: #334155;
+    --cell-conflict: #7f1d1d;
+    --cell-hint: #065f46;
+    --cell-error: #dc2626;
+    --primary: #3b82f6;
+    --primary-hover: #60a5fa;
+    --secondary: #94a3b8;
+    --accent: #34d399;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.game-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control-panel {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--card-bg);
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.btn {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-secondary { background: var(--secondary); color: white; }
+.btn-accent { background: var(--accent); color: white; }
+
+.sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    border: 3px solid var(--grid-border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--grid-border);
+    gap: 1px;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+    font-size: clamp(1rem, 4vw, 1.6rem);
+    font-weight: bold;
+    color: var(--text-primary);
+    outline: none;
+    caret-color: transparent;
+}
+
+.block-a { background-color: var(--cell-bg-a); }
+.block-b { background-color: var(--cell-bg-b); }
+
+.border-right { border-right: 2px solid var(--grid-border) !important; }
+.border-bottom { border-bottom: 2px solid var(--grid-border) !important; }
+
+.cell-locked { background-color: var(--cell-locked); color: var(--text-primary); }
+.cell-conflict { background-color: var(--cell-conflict) !important; }
+.cell-hint { background-color: var(--cell-hint) !important; }
+.cell-error { color: var(--cell-error) !important; }
+
+.status-message {
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-height: 24px;
+}
+
+.scoreboard-section {
+    width: 100%;
+    background: var(--card-bg);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.scoreboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.scoreboard-table th, .scoreboard-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-color);
+}
